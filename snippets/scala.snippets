@@ -28,20 +28,27 @@ snippet object
 		${2}
 	}
 ## application trait
-snippet application
-	object ${1:ObjectName} extends Application {
+snippet app
+	object ${1:ObjectName} extends App {
 		${2}
+	}
+## main program
+snippet prog
+	object ${1:ObjectName} {
+		def main(args: Array[String]): Unit = {
+			${2}
+		}
 	}
 ## defines a type (e.g. structural)
 snippet type
 	type ${1} = {${2}}
 ## function definition
-snippet def
-	def ${1:fname}(${2})${3}
-## method definition
-snippet xdef
-	def ${1:method}(${2})${3:: ${4:Unit}} = {
-		${5}
+snippet fun
+	def ${1:name}(${2}): ${3:Type} = ${4}
+## procedure definition
+snippet proc
+	def ${1:name}(${2}): Unit = {
+		${3}
 	}
 ## if conditional
 snippet if
@@ -75,7 +82,7 @@ snippet tfc
 	}
 ## private
 snippet pr
-	private 
+	private${1} 
 ## scoped private
 snippet pri
 	private[${1:this}]
@@ -95,7 +102,7 @@ snippet foreach
 	}
 snippet match
 	match {
-	    case ${1} => ${2}
+	  case ${1} => ${2}
 	}
 snippet case
 	case ${1} => ${2}
@@ -103,18 +110,18 @@ snippet case
 snippet p
 	println(${1})
 snippet main
-	def main(args: Array[String]) = {
+	def main(args: Array[String]): Unit = {
 	  ${1}
 	}
 ## specifies arguments - x1
 snippet 1tt
-	(${1:first}: ${2:Type})
+	(${1:el}: ${2:Type})
 ## specifies arguments - x2
 snippet 2tt
-	(${1:first}: ${2:Type}, ${3:second}: ${4:Type})
+	(${1:fst}: ${2:Type}, ${3:snd}: ${4:Type})
 ## specifies arguments - x3
 snippet 3tt
-	(${1:first}: ${2:Type}, ${3:second}: ${4:Type}, ${5:third}: ${6:Type})
+	(${1:fst}: ${2:Type}, ${3:snd}: ${4:Type}, ${5:trd}: ${6:Type})
 ## specifies arguments - x2
 snippet 2t
 	(${1:fst}, ${2:snd})

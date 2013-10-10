@@ -154,3 +154,10 @@ snippet sing
 
 		return instance;
 	}
+# Module require
+snippet mr
+	$1 = require('${1:http}')${2}
+snippet srv
+	http.createServer(function (req, res) {
+		 ${1:// body}
+	})${2}
